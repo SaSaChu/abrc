@@ -28,7 +28,15 @@
   }
 }
 
-
+.icon-date_range:before {
+  content: "\e916";
+}
+.icon-menu:before {
+  content: "\e90a";
+}
+.icon-search:before {
+  content: "\e90b";
+}
 .icon-arrow-long-left:before {
   content: "\e900";
 }
@@ -62,6 +70,7 @@
 .icon-facebook:before {
   content: "\ea90";
 }
+
 
 
 
