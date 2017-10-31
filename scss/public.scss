@@ -40,12 +40,26 @@ html {
     @include font-smoothing(antialiased);
   }
 }
+._h {
+  position: absolute;
+  left: 0;
+  top: 0;
+  display: none;
+  width: 0;
+  left: 0;
+  @include opacity(0);
+  z-index: -1;
+}
 #top {
   position: relative;
   z-index: 10;
   display: inline-block;
   width: 100%;
   height: 60px;
+
+  @include range-width(0, 768px) {
+    height: 20px;
+  };
   background-color: rgba(12, 12, 12, 1.00);
   text-align: center;
 
@@ -59,7 +73,6 @@ html {
     > * {
       float: left;
       display: inline-block;
-      
 
       &:nth-child(1) {
         height: 60px;
@@ -91,6 +104,7 @@ html {
           }
         }
       }
+
       &:nth-child(2) {
         width: 280px;
         position: relative;
@@ -137,6 +151,7 @@ html {
           }
         }
       }
+
       &:nth-child(3) {
         width: 100px;
         height: 60px;
@@ -195,6 +210,21 @@ html {
           }
         }
       }
+
+      @include range-width(0, 850px) {
+        &:nth-child(1), &:nth-child(2) { display: none; }
+        &:nth-child(3) { float: right;
+          @include range-width(0, 768px) {
+            height: 20px;
+            line-height: 20px;
+            > a {
+              bottom: -20px;
+              height: 20px;
+              line-height: 20px;
+            }
+          }
+        }
+      };
     }
   }
 }
@@ -205,7 +235,9 @@ html {
   display: inline-block;
   width: 100%;
   height: 238px;
-  
+  @include range-width(0, 768px) {
+    height: 32px + 60px;
+  }
   .bg {
     position: absolute;
     left: 0;
@@ -213,6 +245,9 @@ html {
     display: inline-block;
     width: 100%;
     height: 100%;
+    @include range-width(0, 768px) {
+      height: 70px;
+    };
   }
   .main {
     position: relative;
@@ -221,6 +256,7 @@ html {
     height: 100%;
     max-width: 1200px;
     text-align: left;
+
     // .logo {
     //   display: inline-block;
     //   width: 100%;
@@ -235,6 +271,12 @@ html {
       display: inline-block;
       max-width: 100%;
       margin-top: 20px;
+
+      @include range-width(0, 768px) {
+        margin-top: 10px;
+        height: 50px;
+        margin-bottom: 10px;
+      };
     }
     .menu {
       position: absolute;
@@ -247,13 +289,16 @@ html {
       @include clearfix();
       border: 1px solid rgba(215, 215, 215, 1.00);
       background-color: rgba(238, 238, 238, 1.00);
+      @include range-width(0, 768px) {
+        display: none;
+      }
 
       > * {
         position: relative;
         float: left;
         display: inline-block;
         text-align: left;
-        padding-left: 30px;
+        
         height: 80px - 2px;
         line-height: 80px - 2px;
         font-size: 18px;
@@ -263,11 +308,17 @@ html {
         text-decoration: none;
         @include transition(color .3s);
         
+        padding-left: 30px;
+
+        > div { > a { padding-left: 30px; } }
+        @include range-width(0, 850px) { padding-left: 8px; font-size: 16px; > div { > a { padding-left: 8px; } } }
+        @include range-width(850px, 970px) { padding-left: 10px; > div { > a { padding-left: 10px; } } }
+        @include range-width(970px, 1050px) { padding-left: 20px; > div { > a { padding-left: 20px; } } };
 
         + * {
           border-left: 1px solid rgba(215, 215, 215, 1.00);
         }
-        // border-top: 5px solid transparent;
+
         &:before {
           content: '';
           position: absolute;
@@ -282,9 +333,6 @@ html {
 
         $colors: (rgba(2, 38, 87, 1.00), rgba(86, 157, 28, 1.00), rgba(32, 188, 177, 1.00), rgba(249, 178, 42, 1.00), rgba(75, 163, 195, 1.00), rgba(111, 70, 228, 1.00), rgba(255, 255, 255, 0.00));
         @for $i from 1 through length($colors) {
-          // .item-#{$i} {
-            
-          // }
           &:nth-child(#{$i}) {
             &:hover, &.a {
               color: nth($colors, $i);
@@ -306,10 +354,18 @@ html {
       }
       > a {
         width: 240px;
+        @include range-width(0, 850px) { width: 150px; }
+        @include range-width(850px, 970px) { width: 180px; }
+        @include range-width(970px, 1050px) { width: 200px; };
+        &:hover, &.a {
+          color: rgba(111, 111, 111, 1.00) !important;
+        }
       }
       > div {
         width: calc((100% - 240px) / 6);
-
+        @include range-width(0, 850px) { width: calc((100% - 150px) / 6); }
+        @include range-width(850px, 970px) { width: calc((100% - 180px) / 6); }
+        @include range-width(970px, 1050px) { width: calc((100% - 200px) / 6); }
         &:after {
           font-family: "icomoon"; speak: none; font-style: normal; font-weight: normal; font-variant: normal;
           @include font-smoothing(antialiased);
@@ -325,7 +381,7 @@ html {
           top: 100%;
           left: -1px;
           display: none;
-          width: 200%;
+          width: calc(200% + 2px);
           height: auto;
           background-color: rgba(255, 255, 255, 1.00);
           border: 1px solid rgba(215, 215, 215, 1.00);
@@ -339,7 +395,7 @@ html {
             
             @include overflow-docx3();
             text-align: left;
-            padding-left: 30px;
+            
             + a {
               border-top: 1px solid rgba(215, 215, 215, 1.00);
             }
@@ -351,6 +407,166 @@ html {
         }
       }
     }
+
+    #mmenu {
+      @include range-width(768px) {
+        display: none;
+      }
+
+      &:checked {
+        ~ .mmenu {
+          display: inline-block;
+
+          @include range-width(768px) {
+            display: none;
+          }
+        }
+      }
+    }
+    > label {
+      @include range-width(768px) {
+        display: none;
+      }
+      display: inline-block;
+      width: 100%;
+      height: 32px;
+      line-height: 32px;
+      background-color: rgba(6, 35, 91, 1.00);
+      color: white;
+      padding-left: 8px;
+      &:after {
+        font-family: "icomoon"; speak: none; font-style: normal; font-weight: normal; font-variant: normal;
+        @include font-smoothing(antialiased);
+        content: "\e90a";
+      }
+    }
+    .mmenu {
+
+      @include range-width(768px) {
+        display: none;
+      }
+      position: absolute;
+      left: 0;
+      top: 70px + 32px;
+      display: none;
+      width: 230px;
+      background-color: rgba(255, 255, 255, .75);
+      
+      > label[for='mmenu'] {
+        display: inline-block;
+        width: 100%;
+        height: 24px;
+        line-height: 24px;
+        text-align: right;
+        padding-right: 4px;
+        font-size: 14px;
+      }
+
+      > form {
+        display: inline-block;
+        width: 100%;
+        position: relative;
+        padding: 0 8px;
+        margin-bottom: 16px;
+
+        > input {
+          display: inline-block;
+          width: 100%;
+          height: 28px;
+          line-height: 28px;
+          // margin-top: (60px - 28px) / 2;
+          @include border-radius(28px / 2);
+          border: 1px solid rgba(0, 0, 0, 1.00);
+          background-color: rgba(255, 255, 255, 0);
+          padding: 0 8px;
+          color: rgba(0, 0, 0, 1.00);
+
+          @include input-placeholder {
+            font-size: 13px;
+            font-weight: normal;
+            color: rgba(120, 120, 120, 1);
+          }
+
+          &:focus {
+            outline: 0;
+          }
+        }
+        > button {
+          position: absolute;
+          right: 16px;
+          // top: (60px - 28px) / 2 - 2px;
+          top: 0;
+          display: inline-block;
+          height: 28px;
+          line-height: 28px;
+          width: 34px;
+          cursor: pointer;
+
+          background-color: transparent;
+          color: rgba(0, 0, 0, 1.00);
+          outline: 0;
+          border: 0;
+
+          &:focus {
+            outline: 0;
+          }
+        }
+      }
+      > * {
+      }
+      > label:not(for) {
+        display: inline-block;
+        width: 100%;
+
+        span {
+          display: inline-block;
+          width: 100%;
+          height: 28px;
+          line-height: 28px;
+          // 
+          color: rgba(0, 0, 0, 1.00);
+          padding-left: 8px;
+
+          &:after {
+            font-family: "icomoon"; speak: none; font-style: normal; font-weight: normal; font-variant: normal;
+            @include font-smoothing(antialiased);
+            content: "\e902";
+          }
+        }
+        div {
+          display: none;
+        }
+        input {
+          &:checked {
+            ~ div {
+              display: inline-block;
+              margin-bottom: 16px;
+              a {
+                display: inline-block;
+                width: 100%;
+                height: 28px;
+                line-height: 28px;
+                border-top: 1px solid rgba(62, 86, 104, 1.00);
+                color: rgba(6, 38, 91, 1.00);
+                padding-left: 8px;
+                text-decoration: none;
+              }
+            }
+          }
+        }
+      }
+      > a {
+          // border-top: 1px solid rgba(62, 86, 104, 1.00);
+          height: 28px;
+          line-height: 28px;
+          display: inline-block;
+          width: 100%;
+          text-decoration: none;
+          color: rgba(0, 0, 0, 1.00);
+          padding-left: 8px;
+
+      }
+    }
   }
 }
 
@@ -360,7 +576,22 @@ html {
   display: inline-block;
   width: 100%;
   height: 650px;
+  line-height: 650px;
   overflow: hidden;
+  @include range-width(0, 900px) {
+    height: 460px;
+    line-height: 460px;
+  }
+
+  @include range-width(0, 768px) {
+    height: 360px;
+    line-height: 360px;
+  }
+
+  @include range-width(0, 420px) {
+    height: 160px;
+    line-height: 160px;
+  }
 
   > a {
     position: absolute;
@@ -370,8 +601,7 @@ html {
     @include range-width(0, 1350px) {
       width: 120px;
     };
-    height: 650px;
-    line-height: 650px;
+
     
     font-size: 100px;
     color: white;
@@ -384,6 +614,14 @@ html {
     }
     &.r {
       right: 0;
+    }
+    @include range-width(0, 768px) {
+      font-size: 70px;
+    }
+    @include range-width(0, 420px) {
+      font-size: 50px;
+      width: 70px;
+      // display: none;
     }
   }
   > div {
@@ -415,6 +653,22 @@ html {
       &:nth-child(n + 4) {
         left: calc(50% + 1200px / 2 + 1200px);
       }
+      @include range-width(0, 1200px) {
+        width: 100%;
+        border: 0;
+        &:nth-child(1) {
+          left: -100%;
+        }
+        &:nth-child(2) {
+          left: 0;
+        }
+        &:nth-child(3) {
+          left: 100%;
+        }
+        &:nth-child(n + 4) {
+          left: 100%;
+        }
+      };
     }
   } 
 }
@@ -422,6 +676,9 @@ html {
 #index-main {
   display: inline-block;
   width: 100%;
+  @include range-width(0, 920px) {
+    margin-top: 8px;
+  }
 
   > div {
     width: 100%;
@@ -437,6 +694,10 @@ html {
         width: calc(100% - 386px);
         padding-left: 30px;
         padding-right: 30px;
+        @include range-width(0, 920px) {
+          padding-left: 16px;
+          padding-right: 16px;
+        };
       }
       &.r {
         width: 386px;
@@ -449,6 +710,9 @@ html {
         width: 100%;
         height: 450px;
         margin-top: 32px;
+        @include range-width(0, 920px) {
+          margin-top: 16px;
+        }
         @include clearfix();
         > * {
           display: inline-block;
@@ -507,6 +771,9 @@ html {
   display: inline-block;
   width: 100%;
   margin-top: 32px;
+  @include range-width(0, 920px) {
+    margin-top: 16px;
+  }
   @include clearfix();
   
   > * {
@@ -552,13 +819,18 @@ html {
   @include box-shadow(1px 1px 2px rgba(200, 200, 200, 1.00));
   @include clearfix();
   margin-top: 32px;
-
+  @include range-width(0, 920px) {
+    margin-top: 16px;
+  }
   > * {
     float: left;
     display: inline-block;
   }
   + .tip {
     margin-top: 32px * 2 !important;
+    @include range-width(0, 920px) {
+      margin-top: 16px * 2 !important;
+    }
   }
   ._ic {
     width: 300px;
@@ -609,6 +881,13 @@ html {
 
       }
     }
+    @include range-width(0, 1020px) {
+      width: calc(100% - 280px);
+
+      + * {
+        width: 280px;
+      }
+    };
   }
 }
 .pk {
@@ -617,6 +896,10 @@ html {
   width: 100%;
   height: 200px * 3 + 32px * 2;
   margin-top: 32px;
+  @include range-width(0, 920px) {
+    margin-top: 16px;
+    height: 200px * 3 + 16px * 2;
+  }
   background-color: white;
 
   .bp {
@@ -651,9 +934,13 @@ html {
     font-size: 18px;
     line-height: 20px;
     height: 20px * 13;
+    // border: 1px solid rgba(255, 0, 0, .3);
     overflow: hidden;
     word-break: break-all;
     padding: 0 20px;
+    @include range-width(0, 920px) {
+      height: 20px * 12;
+    }
   }
   .bottom {
     position: absolute;
@@ -697,19 +984,25 @@ html {
   display: inline-block;
   width: 100%;
   margin-top: 32px * 2;
+  @include range-width(0, 920px) {
+    margin-top: 16px * 2;
+  }
 
   .t2 {
     display: inline-block;
     height: 80px;
+    line-height: 80px;
     width: 100%;
     @include clearfix();
-    
+    @include range-width(0, 920px) {
+      height: 64px;
+      line-height: 64px;
+    }
     > * {
       float: left;
       display: inline-block;
       width: 50%;
-      height: 80px;
-      line-height: 80px;
+      height: 100%;
       cursor: pointer;
       font-size: 28px;
       @include transition(background-color .3s, color .3s);
@@ -730,6 +1023,9 @@ html {
     display: inline-block;
     width: 100%;
     height: 438px;
+    @include range-width(0, 920px) {
+      height: 438px - 16px - 1px + 14px;
+    }
     background-color: rgba(255, 255, 255, 1.00);
 
     > div {
@@ -830,6 +1126,7 @@ html {
     .n1 {
       width: 456px;
       text-align: left;
+      padding-right: 20px;
 
       img {
         max-width: 100%;
@@ -904,6 +1201,49 @@ html {
         height: 100%;
       }
     }
+
+  }
+  @include range-width(0, 915px) {
+    > div {
+      padding: 12px;
+    }
+  }
+  @include range-width(0, 1111px) {
+    height: auto;
+    > div {
+      height: auto;
+      .n1 {
+        width: 100%;
+        height: 160px;
+        margin-bottom: 16px;
+        padding-right: 0;
+        @include clearfix();
+        
+        img {
+          float: left;
+          display: inline-block;
+          max-width: calc(50% - 48px / 2);
+
+          + img {
+            float: right;
+            margin-top: 0;
+          }
+        }
+      }
+      .n2 {
+        width: 50%;
+        height: auto;
+        padding-top: 10px;
+        padding-bottom: 10px;
+      }
+      .n3 {
+        width: 50%;
+        height: 342px;
+      }
+    }
+  };
+  @include range-width(0, 768px) {
+    display: none;
   }
 }
 
@@ -911,20 +1251,28 @@ html {
   display: inline-block;
   width: 100%;
   height: 60px;
+  line-height: 60px;
   background-color: rgba(0, 0, 0, 1.00);
   color: white;
-
+  font-size: 18px;
   > div {
     display: inline-block;
     width: 100%;
-    height: 60px;
-    line-height: 60px;
+    height: 100%;
     max-width: 1200px;
     padding: 0 30px;
     margin: 0 auto;
     text-align: left;
     font-weight: bold;
-    font-size: 18px;
     @include clearfix();
+  }
+  @include range-width(0, 768px) {
+    margin-top: 20px;
+    height: 24px;
+    line-height: 24px;
+    font-size: 15px;
+    > div {
+      text-align: center;
+    }
   }
 }

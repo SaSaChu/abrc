@@ -6,14 +6,8 @@
   @include font-smoothing(antialiased);
 }
 
-.icon-date_range:before {
-  content: "\e916";
-}
-.icon-menu:before {
-  content: "\e90a";
-}
-.icon-search:before {
-  content: "\e90b";
+.icon-x:before {
+  content: "\e90c";
 }
 .icon-arrow-long-left:before {
   content: "\e900";
@@ -44,6 +38,15 @@
 }
 .icon-instagram:before {
   content: "\e909";
+}
+.icon-menu:before {
+  content: "\e90a";
+}
+.icon-search:before {
+  content: "\e90b";
+}
+.icon-date_range:before {
+  content: "\e916";
 }
 .icon-facebook:before {
   content: "\ea90";
