@@ -5,6 +5,8 @@
  */
 
 @import "_oa";
+$ipad: 768px;
+$iphone: 420px;
 
 * {
   &, &:after, &:before {
@@ -32,8 +34,8 @@ html {
     font-size: medium;
     font-family: Roboto, RobotoDraft, Helvetica, Arial, sans-serif, "微軟正黑體", "Microsoft JhengHei";
 
-    background: $mainBackgroundColor;
-    background-image: $mainBackgroundImage;
+    background: rgba(245, 245, 245, 1.00);
+    // background-image: $mainBackgroundImage;
 
     @include font-smoothing(antialiased);
   }
@@ -414,6 +416,481 @@ html {
         left: calc(50% + 1200px / 2 + 1200px);
       }
     }
+  } 
+}
+
+#index-main {
+  display: inline-block;
+  width: 100%;
+
+  > div {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    @include clearfix();
+    
+    > * {
+      float: left;
+      display: inline-block;
+      
+      &.l {
+        width: calc(100% - 386px);
+        padding-left: 30px;
+        padding-right: 30px;
+      }
+      &.r {
+        width: 386px;
+        padding-right: 30px;
+      }
+    }
+    .l {
+      .mix-box {
+        display: inline-block;
+        width: 100%;
+        height: 450px;
+        margin-top: 32px;
+        @include clearfix();
+        > * {
+          display: inline-block;
+          float: left;
+          height: 450px;
+        }
+        .img {
+          width: calc(100% - 300px);
+          + div {
+            width: 300px;
+          }
+        }
+        .x {
+          display: block;
+          width: 100%;
+          height: 0+450px / 3;
+          
+          background-color: white;
+          text-align: left;
+          padding: 20px;
+          cursor: pointer;
+          @include transition(background-color .3s);
+
+          img {
+            display: none;
+          }
+          span {
+            display: inline-block;
+            width: 100%;
+            color: rgba(137, 137, 137, 1.00);
+            font-size: 16px;
+            line-height: 20px;
+            word-break: break-all;
+            height: 20px * 4;
+            overflow: hidden;
+            @include transition(color .3s);
+          }
+          time {
+            word-break: break-all;
+            display: inline-block;
+            width: 100%;
+            margin-top: 12px;
+          }
+          &.a {
+            background-color: rgba(201, 201, 201, 1.00);
+            span {
+              color: rgba(49, 49, 49, 1.00);
+            }
+          }
+        }
+      }
+    }
   }
+}
+.tip {
+  display: inline-block;
+  width: 100%;
+  margin-top: 32px;
+  @include clearfix();
   
+  > * {
+    float: left;
+    display: inline-block;
+    margin: 0;
+    width: calc(100% - 120px);
+    text-align: left;
+    font-weight: normal;
+    font-size: 24px;
+
+    + * {
+      width: 120px;
+      text-align: right;
+      > a {
+        display: inline-block;
+        padding: 0 16px;
+        color: white;
+        height: 30px;
+        line-height: 30px;
+        font-size: 14px;
+        text-decoration: none;
+        text-transform: uppercase;
+
+        &.g {
+          background-color: rgba(25, 169, 130, 1.00);
+        }
+        &.lg {
+          background-color: rgba(28, 151, 25, 1.00);
+        }
+        &.b {
+          background-color: rgba(5, 36, 89, 1.00);
+        }
+      }
+    }
+  }
+}
+.bk {
+  display: inline-block;
+  width: 100%;
+  height: 200px;
+  background-color: white;
+  @include box-shadow(1px 1px 2px rgba(200, 200, 200, 1.00));
+  @include clearfix();
+  margin-top: 32px;
+
+  > * {
+    float: left;
+    display: inline-block;
+  }
+  + .tip {
+    margin-top: 32px * 2 !important;
+  }
+  ._ic {
+    width: 300px;
+    height: 200px;
+    &[data-title] {
+      position: relative;
+      &:after {
+        content: attr(data-title);
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        display: inline-block;
+        height: 28px;
+        line-height: 28px;
+        padding: 0 8px;
+        background-color: rgba(137, 156, 29, 1.00);
+        color: white;
+        font-size: 14px;
+      }
+    }
+    + * {
+      width: calc(100% - 300px);
+      padding: 28px 22px;
+      text-align: left;
+      > * {
+        display: inline-block;
+        width: 100%;
+      }
+      h4 {
+        color: rgba(0, 0, 0, 1.00);
+        height: 32px;
+        line-height: 32px;
+        font-size: 18px;
+        margin: 8px 0;
+        margin-bottom: 4px;
+        @include overflow-docx3();
+      }
+      p {
+        color: rgba(34, 34, 34, 1.00);
+        margin: 4px 0;
+        line-height: 24px;
+        height: 24px * 3;
+        overflow: hidden;
+      }
+      time {
+        margin-top: 8px;
+        color: rgba(38, 38, 38, 1.00);
+
+      }
+    }
+  }
+}
+.pk {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+  height: 200px * 3 + 32px * 2;
+  margin-top: 32px;
+  background-color: white;
+
+  .bp {
+    position: relative;
+    background-color: rgba(201, 201, 201, 1.00);
+    display: inline-block;
+    width: 100%;
+    height: 225px;
+    z-index: 1;
+  }
+  .avatar {
+    position: relative;
+    z-index: 2;
+    display: inline-block;
+    width: 250px;
+    height: 250px;
+    border: 5px solid rgba(255, 255, 255, 1);
+    margin-top: -180px;
+  }
+  > span {
+    display: block;
+    width: 100%;
+    font-size: 22px;
+    margin-top: 16px;
+    color: rgba(14, 14, 14, 1.00);
+  }
+  > p {
+    color: rgba(136, 136, 136, 1.00);
+    display: inline-block;
+    width: 100%;
+    text-align: center;
+    font-size: 18px;
+    line-height: 20px;
+    height: 20px * 13;
+    overflow: hidden;
+    word-break: break-all;
+    padding: 0 20px;
+  }
+  .bottom {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+
+    display: inline-block;
+    width: 100%;
+    height: 32px;
+    line-height: 32px;
+    @include clearfix();
+    
+    > * {
+      float: left;
+      display: inline-block;
+      width: calc(100% - 32px * 2);
+      height: 32px;
+      border: 1px solid white;
+      border-top: 0;
+      border-bottom: 0;
+      background-color: rgba(201, 201, 201, 1.00);
+    }
+    > a {
+      width: 32px;
+      text-decoration: none;
+      color: white;
+      @include transition(background-color .3s);
+      &:first-child {
+        border-left: 0;
+      }
+      &:last-child {
+        border-right: 0;
+      }
+      &:hover {
+        background-color: rgba(6, 35, 91, 1.00);
+      }
+    }
+  }
+}
+.tk {
+  display: inline-block;
+  width: 100%;
+  margin-top: 32px * 2;
+
+  .t2 {
+    display: inline-block;
+    height: 80px;
+    width: 100%;
+    @include clearfix();
+    
+    > * {
+      float: left;
+      display: inline-block;
+      width: 50%;
+      height: 80px;
+      line-height: 80px;
+      cursor: pointer;
+      font-size: 28px;
+      @include transition(background-color .3s, color .3s);
+      color: rgba(255, 255, 255, 1.00);
+      background-color: rgba(201, 201, 201, 1.00);
+
+      &.a {
+        color: rgba(201, 201, 201, 1.00);
+        background-color: rgba(255, 255, 255, 1.00);
+      }
+      &:hover:not(.a){
+        color: rgba(255, 255, 255, 1.00);
+        background-color: rgba(190, 190, 190, 1.00);
+      }
+    }
+  }
+  .m3 {
+    display: inline-block;
+    width: 100%;
+    height: 438px;
+    background-color: rgba(255, 255, 255, 1.00);
+
+    > div {
+      display: none;
+      width: 100%;
+      height: 438px;
+      padding: 20px;
+      padding-top: 10px;
+
+      &.a {
+        display: inline-block;
+      }
+      > a:not(:last-child) {
+        display: inline-block;
+        width: 100%;
+        height: 100px;
+        padding-top: 20px;
+        @include clearfix();
+        + a:not(:last-child) {
+          position: relative;
+          margin-top: 20px;
+          
+          &:before {
+            content: '';
+            position: absolute;
+            top: -10px;
+            left: 0;
+            display: inline-block;
+            width: 100%;
+            height: 4px;
+            background-color: rgba(201, 201, 201, 1.00);
+            border: 1px solid rgba(0, 0, 2, 1);
+          }
+        }
+        > * {
+          float: left;
+          display: inline-block;
+          height: 62px;
+        }
+        ._ic {
+          width: calc(100% - 180px);
+          + * {
+            width: 180px;
+            line-height: 20px;
+            height: 3 * 20px;
+            font-size: 18px;
+            overflow: hidden;
+            text-align: left;
+            padding-left: 8px;
+            color: rgba(0, 0, 0, 1.00);
+            margin-top: 4px;
+            word-break: break-all;
+          }
+        }
+      }
+      > a:last-child {
+        display: inline-block;
+        width: 100%;
+        height: 50px;
+        line-height: 50px;
+        color: 30px;
+        color: white;
+        background-color: rgba(201, 201, 201, 1.00);
+        @include transition(background-color .3s);
+        text-decoration: none;
+        font-size: 20px;
+        margin-top: 16px;
+        text-transform: uppercase;
+        &:hover {
+          background-color: rgba(190, 190, 190, 1.00)
+        }
+        
+      }
+    }
+  }
+}
+
+#index-bpanel {
+  display: inline-block;
+  width: 100%;
+  height: 400px;
+  margin-top: 64px;
+  background-color: rgba(6, 35, 91, 1.00);
+  > div {
+    display: inline-block;
+    width: 100%;
+    height: 400px;
+    max-width: 1200px;
+    padding: 30px;
+    margin: 0 auto;
+    border: 1px solid rgba(255, 0, 0, .3);
+    @include clearfix();
+    > * {
+      float: left;
+      display: inline-block;
+      width: calc(100% - 456px - 310px);
+    }
+    .n1 {
+      width: 456px;
+      text-align: left;
+
+      img {
+        max-width: 100%;
+        + img {
+          margin-top: 48px;
+        }
+      }
+    }
+    .n2 {
+      width: 310px;
+      border: 2px solid rgba(201, 201, 201, 1.00);
+      border-left: 0;
+      border-right: 0;
+      height: 400px - 30px * 2 - 2px * 2;
+      color: rgba(201, 201, 201, 1.00);
+      text-align: left;
+      h3 {
+        margin: 0;
+        display: inline-block;
+        width: 100%;
+        height: 36px;
+        line-height: 36px;
+        // border: 1px solid rgba(255, 0, 0, .3);
+        font-size: 22px;
+      }
+      span {
+        display: inline-block;
+        width: 100%;
+        height: 26px;
+        line-height: 26px;
+        font-size: 18px;
+        + h3 {
+          margin-top: 26px;
+        }
+      }
+      > div {
+        display: inline-block;
+        width: 100%;
+        height: 48px;
+        margin-top: 16px;
+        @include clearfix();
+        > a {
+          float: left;
+          display: inline-block;
+          height: 48px;
+          width: 48px;
+          line-height: 48px;
+          text-decoration: none;
+          text-align: center;
+          font-size: 25px;
+          background-color: rgba(38, 63, 114, 1.00);
+          color: rgba(152, 159, 184, 1.00);
+          @include border-radius(50%);
+          + a {
+            margin-left: 16px;
+          }
+        }
+      }
+    }
+    .n3 {
+      
+    }
+  }
 }

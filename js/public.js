@@ -26,5 +26,20 @@ $(function () {
       }
     });
   });
+  $('.mix-box').each (function () {
+    var $img = $(this).find ('.img');
+    $(this).find ('.x').click (function () {
+      $img.empty ().append ($('<img />').attr ('src', $(this).find ('img').attr ('src')));
+      $img.OAIL ({verticalAlign: 'center'});
+      $(this).addClass ('a').siblings ().removeClass ('a');
+    }).first ().click ();
+  });
+  $('.tk').each (function () {
+    var $m3d = $(this).find ('.m3 > div');
+    $(this).find ('.t2>a').click (function () {
+      $(this).addClass ('a').siblings ().removeClass ('a');
+      $m3d.eq ($(this).index ()).addClass ('a').siblings ().removeClass ('a');
+    }).first ().click ();
+  });
 
 });
