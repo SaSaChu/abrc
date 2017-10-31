@@ -7,4 +7,24 @@ var OAIL=OAIL||{VER:"0.9.944"};OAIL.bgs_Available=!1,OAIL.bgs_CheckRunned=!1,OAI
 
 $(function () {
   $('._ic').OAIL ({verticalAlign: 'center'});
+
+  $('#banner').each (function () {
+    var $div = $(this).find ('>div');
+    var $imgs = $div.find ('>*');
+
+    $(this).find ('>a').click (function () {
+      var $tmp = null;
+
+      if ($(this).hasClass ('l')) {
+        $tmp = $div.find ('>*').last ();
+        $tmp.clone (true).prependTo ($div);
+        $tmp.remove ();
+      } else {
+        $tmp = $div.find ('>*').first ();
+        $tmp.clone (true).appendTo ($div);
+        $tmp.remove ();
+      }
+    });
+  });
+
 });
