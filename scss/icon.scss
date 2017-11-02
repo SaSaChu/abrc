@@ -6,6 +6,9 @@
   @include font-smoothing(antialiased);
 }
 
+.icon-dot-single:before {
+  content: "\e90d";
+}
 .icon-x:before {
   content: "\e90c";
 }
