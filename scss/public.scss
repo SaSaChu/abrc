@@ -891,6 +891,16 @@ html {
     }
   }
 
+  &.py {
+    > div {
+      > a {
+        &.a, &:hover {
+          background-color: rgba(254, 171, 4, 1.00);
+        }
+      }
+    }
+  }
+
   &.o {
     > div {
       > a {
@@ -900,6 +910,7 @@ html {
       }
     }
   }
+
   &.p {
     > div {
       > a {
@@ -909,6 +920,21 @@ html {
       }
     }
   }
+  
+
+  &.yellow {
+    > div {
+      width: 100% !important;
+      > a {
+        width: 50% !important;
+
+        &.a, &:hover {
+          background-color: rgba(254, 171, 4, 1.00);
+        }
+      }
+    }
+  }
+
   &.b {
     > div {
       > a {
@@ -980,9 +1006,9 @@ html {
             text-decoration: none;
             font-size: 18px;
             background-color: rgba(200, 201, 202, 1.00);
-            @include transition(background-color .3s);
-            
+            @include transition(background-color .3s);            
           }
+
           &.o {
             > a {
               &.a, &:hover {
@@ -990,6 +1016,7 @@ html {
               }
             }
           }
+
           &.p {
             > a {
               &.a, &:hover {
@@ -997,6 +1024,27 @@ html {
               }
             }
           }
+
+          &.py {
+            > a {
+              line-height: 40px;
+
+              &.a, &:hover {
+                background-color: rgba(254, 171, 4, 1.00);
+              }
+            }
+          }
+
+          &.yellow {
+            > a {
+              line-height: 40px;
+
+              &.a, &:hover {
+                background-color: rgba(254, 171, 4, 1.00);
+              }
+            }
+          }
+
           &.b {
             > a {
               &.a, &:hover {
