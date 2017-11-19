@@ -90,4 +90,10 @@ $(function () {
   $('#contact-t > a').click (function () {
     $('html').animate ({ scrollTop: $(!$(this).index () ? '#contact-bpanel' : '#one-main').offset ().top + 'px' },'slow');
   });
+  
+  lightbox.option({
+    'resizeDuration': 200,
+    'wrapAround': true,
+    'alwaysShowNavOnTouchDevices': true
+  });
 });
