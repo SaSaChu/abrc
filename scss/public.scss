@@ -1161,6 +1161,7 @@ html {
     }
   }
 }
+
 .bk {
   position: relative;
   display: inline-block;
@@ -1309,6 +1310,169 @@ html {
     height: 28px;
     line-height: 28px;
     font-size: 14px;
+  }
+}
+.nk {
+  display: inline-block;
+  width: 100%;
+  background-color: white;
+  @include box-shadow(1px 1px 2px rgba(200, 200, 200, 1.00));
+
+  padding: 30px;
+  @include range-width(0, 450px) {
+    padding: 8px;
+  }
+  @include range-width(450px, 1040px) {
+    padding: 16px;
+  }
+  margin-top: 32px;
+  @include range-width(0, 920px) {
+    margin-top: 16px;
+  }
+
+  > div {
+    overflow: auto;
+    border: 1px solid rgba(227, 228, 229, 1.00);
+
+    > div {
+      display: inline-block;
+      width: 100%;
+      min-width: 600px;
+      @include clearfix();
+      
+      // @include range-width(450px) {
+      //   border-left: 1px solid rgba(227, 228, 229, 1.00);
+      //   border-right: 1px solid rgba(227, 228, 229, 1.00);
+        
+      //   &:first-child {
+      //     border-top: 1px solid rgba(227, 228, 229, 1.00);
+      //   }
+      //   &:last-child {
+      //     border-bottom: 1px solid rgba(227, 228, 229, 1.00);
+      //   }
+      // }
+      &:nth-child(2n + 2) {
+        background-color: rgba(243, 244, 245, 1.00);
+      }
+
+      + * {
+        border-top: 1px solid rgba(227, 228, 229, 1.00);
+      }
+      > * {
+        float: left;
+        display: inline-block;
+        width: 230px;
+        + * {
+          width: calc(100% - 230px);
+        }
+        @include range-width(0, 500px) {
+          width: 150px;
+          + * {
+            width: calc(100% - 150px);
+          }
+        }
+        @include range-width(500px, 650px) {
+          width: 180px;
+          + * {
+            width: calc(100% - 180px);
+          }
+        }
+        @include range-width(768px, 850px) {
+          width: 150px;
+          + * {
+            width: calc(100% - 150px);
+          }
+        }
+        @include range-width(850px, 900px) {
+          width: 180px;
+          + * {
+            width: calc(100% - 180px);
+          }
+        };
+      }
+      .l {
+        min-height: 250px;
+        > ._ic {
+          display: inline-block;
+          width: 155px;
+          height: 155px;
+          margin-top: 28px;
+          + span {
+            margin-top: 8px;
+          }
+          @include range-width(0, 500px) {
+            width: 100px;
+            height: 100px;
+          }
+          @include range-width(500px, 650px) {
+            width: 130px;
+            height: 130px;
+          }
+          @include range-width(768px, 850px) {
+            width: 100px;
+            height: 100px;
+          }
+          @include range-width(850px, 900px) {
+            width: 130px;
+            height: 130px;
+          }
+        }
+        > span {
+          display: inline-block;
+          width: 100%;
+          height: 24px;
+          line-height: 24px;
+          text-align: center;
+          @include overflow-docx3();
+          @include range-width(0, 500px) {
+            font-size: 13px;
+          }
+          @include range-width(768px, 850px) {
+            font-size: 13px;
+          }
+        }
+      }
+      .r {
+        min-height: 250px;
+        border-left: 1px solid rgba(227, 228, 229, 1.00);
+        padding: 20px;
+        word-break: break-all;
+        p {
+          display: inline-block;
+          width: 100%;
+          margin: 0;
+          text-align: left;
+          color: rgba(135, 136, 137, 1.00);
+          font-size: 18px;
+          + p {
+            margin-top: 6px;
+          }
+          a {
+            color: rgba(8, 31, 74, 1.00);
+          }
+        }
+      }
+      @include range-width(0, 600px) {
+        // .l {
+        //   width: 100%;
+        // }
+        // .r {
+        //   width: 100%;
+        //   border-left: 0;
+        //   border-top: 1px solid rgba(227, 228, 229, 1.00);
+        // }
+      }
+      @include range-width(768px, 1040px) {
+        // .l {
+        //   width: 100%;
+        // }
+        // .r {
+        //   width: 100%;
+        //   border-left: 0;
+        //   border-top: 1px solid rgba(227, 228, 229, 1.00);
+        // }
+      };
+    }
   }
 }
 .pk {
