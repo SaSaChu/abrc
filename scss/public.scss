@@ -1449,6 +1449,12 @@ html {
           }
           a {
             color: rgba(8, 31, 74, 1.00);
+            cursor: pointer;
+            text-decoration: none;
+
+            &:hover, &:active {
+              text-decoration: underline;
+            }
           }
         }
       }
