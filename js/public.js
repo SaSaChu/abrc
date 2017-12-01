@@ -14,6 +14,7 @@ var OAIL=OAIL||{VER:"0.9.944"};OAIL.bgs_Available=!1,OAIL.bgs_CheckRunned=!1,OAI
 
 $(function () {
   $('._ic').OAIL ({verticalAlign: 'center'});
+  $('._ia').OAIL ({verticalAlign: 'center'});
 
   $('#banner').each (function () {
     var $div = $(this).find ('>div');
