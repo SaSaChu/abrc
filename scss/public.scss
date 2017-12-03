@@ -2670,7 +2670,6 @@ html {
     padding-bottom: 48px;
   }
 
-
   > .bottom {
     display: inline-block;
     width: 100%;
@@ -2680,72 +2679,167 @@ html {
     };
     // margin-top: 32px;
   }
+  &.n2 {
+    > .pk {
+      @include range-width(0, 450px) {
+        width: calc(100% / 2 - 8px * 1 / 2);
+        &:nth-child(2n + 2) {
+          margin-left: 8px;
+        }
+
+        height: 446px;
+        > .bp {
+          height: 100px;
+        }
+        > .avatar {
+          width: 100px;
+          height: 100px;
+          margin-top: -60px;
+        }
+        > p {
+          font-size: 14px;
+        }
+      }
+      @include range-width(450px, 650px) {
+        width: calc(100% / 2 - 16px * 1 / 2);
+        &:nth-child(2n + 2) {
+          margin-left: 16px;
+        }
+
+        height: 504px;
+        > .bp {
+          height: 150px;
+        }
+        > .avatar {
+          width: 150px;
+          height: 150px;
+          margin-top: -110px;
+        }
+      }
+      @include range-width(650px, 768px) {
+        width: calc(100% / 2 - 16px * 1 / 2);
+        &:nth-child(2n + 2) {
+          margin-left: 16px;
+        }
+        height: 484px;
+        > .bp {
+          height: 90px;
+        }
+        > .avatar {
+          width: 160px;
+          height: 160px;
+          margin-top: -80px;
+        }
+      }
+      @include range-width(768px, 950px) {
+        width: calc(100% / 2 - 16px * 1 / 2);
+        &:nth-child(2n + 2) {
+          margin-left: 16px;
+        }
+        height: 484px;
+        > .bp {
+          height: 110px;
+        }
+        > .avatar {
+          width: 120px;
+          height: 120px;
+          margin-top: -60px;
+        }
+      }
+      @include range-width(950px, 1100px) {
+        width: calc(100% / 2 - 32px * 1 / 2);
+        &:nth-child(2n + 2) {
+          margin-left: 32px;
+        }
+        height: 484px;
+        > .bp {
+          height: 100px;
+        }
+        > .avatar {
+          width: 150px;
+          height: 150px;
+          margin-top: -80px;
+        }
+      }
+      @include range-width(1100px) {
+        width: calc(100% / 2 - 32px * 1 / 2);
+        &:nth-child(2n + 2) {
+          margin-left: 32px;
+        }
+      }
+    }
+  }
+  &:not(.n2) {
+    > .pk {
+      @include range-width(0, 450px) {
+        width: calc(100% / 2 - 8px * 1 / 2);
+        &:nth-child(2n + 2) {
+          margin-left: 8px;
+        }
+
+        height: 446px;
+        > .bp {
+          height: 100px;
+        }
+        > .avatar {
+          width: 100px;
+          height: 100px;
+          margin-top: -60px;
+        }
+        > p {
+          font-size: 14px;
+        }
+      }
+      @include range-width(450px, 650px) {
+        width: calc(100% / 2 - 16px * 1 / 2);
+        &:nth-child(2n + 2) {
+          margin-left: 16px;
+        }
+
+        height: 504px;
+        > .bp {
+          height: 150px;
+        }
+        > .avatar {
+          width: 150px;
+          height: 150px;
+          margin-top: -110px;
+        }
+      }
+      @include range-width(650px, 700px) {
+        width: calc(100% / 2 - 16px * 1 / 2);
+        &:nth-child(2n + 2) {
+          margin-left: 16px;
+        }
+      }
+      @include range-width(700px, 850px) {
+        width: calc(100% / 2 - 32px * 1 / 2);
+        &:nth-child(2n + 2) {
+          margin-left: 32px;
+        }
+      }
+      @include range-width(850px, 1032px) {
+        width: calc(100% / 3 - 16px * 2 / 3);
+        &:nth-child(3n + 2) {
+          margin-left: 16px;
+          margin-right: 16px;
+        }
+      };
+      @include range-width(1032px) {
+        width: calc(100% / 3 - 32px * 2 / 3);
+        &:nth-child(3n + 2) {
+          margin-left: 32px;
+          margin-right: 32px;
+        }
+      }
+    }
+  }
   > .pk {
     float: left;
     display: inline-block;
     height: 609px;
 
-    @include range-width(0, 450px) {
-      width: calc(100% / 2 - 8px * 1 / 2);
-      &:nth-child(2n + 2) {
-        margin-left: 8px;
-      }
 
-      height: 446px;
-      > .bp {
-        height: 100px;
-      }
-      > .avatar {
-        width: 100px;
-        height: 100px;
-        margin-top: -60px;
-      }
-      > p {
-        font-size: 14px;
-      }
-    }
-    @include range-width(450px, 650px) {
-      width: calc(100% / 2 - 16px * 1 / 2);
-      &:nth-child(2n + 2) {
-        margin-left: 16px;
-      }
-
-      height: 504px;
-      > .bp {
-        height: 150px;
-      }
-      > .avatar {
-        width: 150px;
-        height: 150px;
-        margin-top: -110px;
-      }
-    }
-    @include range-width(650px, 700px) {
-      width: calc(100% / 2 - 16px * 1 / 2);
-      &:nth-child(2n + 2) {
-        margin-left: 16px;
-      }
-    }
-    @include range-width(700px, 850px) {
-      width: calc(100% / 2 - 32px * 1 / 2);
-      &:nth-child(2n + 2) {
-        margin-left: 32px;
-      }
-    }
-    @include range-width(850px, 1032px) {
-      width: calc(100% / 3 - 16px * 2 / 3);
-      &:nth-child(3n + 2) {
-        margin-left: 16px;
-        margin-right: 16px;
-      }
-    };
-    @include range-width(1032px) {
-      width: calc(100% / 3 - 32px * 2 / 3);
-      &:nth-child(3n + 2) {
-        margin-left: 32px;
-        margin-right: 32px;
-      }
-    }
     > p {
       line-height: 20px;
       height: 20px * 10;
