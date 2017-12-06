@@ -267,17 +267,23 @@ html {
     //     text-align: left;
     //   }
     // }
-    > img {
+    a {
       display: inline-block;
-      max-width: 100%;
-      margin-top: 20px;
+      cursor: pointer;
+      text-decoration: none;
+      > img {
+        display: inline-block;
+        max-width: 100%;
+        margin-top: 20px;
 
-      @include range-width(0, 768px) {
-        margin-top: 10px;
-        height: 50px;
-        margin-bottom: 10px;
-      };
+        @include range-width(0, 768px) {
+          margin-top: 10px;
+          height: 50px;
+          margin-bottom: 10px;
+        };
+      }
     }
+    
     .menu {
       position: absolute;
       bottom: 0;
@@ -793,7 +799,9 @@ html {
           text-align: left;
           padding: 20px;
           cursor: pointer;
+          position: relative;
           @include transition(background-color .3s);
+          
           .img {
             display: none;
           }
@@ -811,8 +819,22 @@ html {
           time {
             word-break: break-all;
             display: inline-block;
-            width: 100%;
+            width: 50%;
             margin-top: 12px;
+          }
+          .tmore {
+            display: inline-block;
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            display: inline-block;
+            padding: 0 8px;
+            background-color: rgba(3, 33, 94, 1.00);
+            color: white;
+            text-decoration: none;
+            height: 28px;
+            line-height: 28px;
+            font-size: 14px;
           }
           @include range-width(0, 600px) {
             &.a {
@@ -1135,6 +1157,9 @@ html {
     }
   }
   &.y2 {
+    h5 {
+      color: rgba(102, 55, 226, 1.00);
+    }
     > * {
       width: 100%;
       &.o {
@@ -1145,6 +1170,23 @@ html {
       }
     }
   }
+
+  &.y6 {
+    
+    a {
+      display: inline-block;
+      width: 100%;
+      text-align: left;
+      font-size: 15px;
+      text-decoration: underline;
+      color: rgba(80, 80, 80, 1.00);
+      margin-top: 10px;
+      &:hover, &:active {
+        color: rgba(102, 55, 226, 1.00);
+      }
+    }
+  }
+
   &.y3 {
     height: 32px;
     @include range-width(0, 920px) {
@@ -2859,6 +2901,9 @@ html {
     > .bottom {
       &.b {
         background-color: rgba(12, 71, 139, 1.00);
+      }
+      &.tg {
+        background-color: rgba(102, 55, 226, 1.00);
       }
       &.lb {
         background-color: rgba(1, 195, 156, 1.00);
