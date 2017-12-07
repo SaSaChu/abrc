@@ -171,7 +171,7 @@ body.lb-disable-scrolling {
 }
 
 .lb-data .lb-number {
-  display: block;
+  display: block !important;
   clear: left;
   padding-bottom: 1em;
   font-size: 12px;
@@ -194,3 +194,5 @@ body.lb-disable-scrolling {
   cursor: pointer;
   @include opacity(1);
 }
+
+
