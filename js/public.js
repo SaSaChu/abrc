@@ -91,11 +91,30 @@ $(function () {
   $('#contact-t > a').click (function () {
     $('html').animate ({ scrollTop: $(!$(this).index () ? '#contact-bpanel' : '#one-main').offset ().top + 'px' },'slow');
   });
-  
-  lightbox.option({
-    'disableScrolling': true,
-    'resizeDuration': 200,
-    'wrapAround': true,
-    'alwaysShowNavOnTouchDevices': true
+
+  if (typeof lightbox !== 'undefined')
+    lightbox.option({
+      'disableScrolling': true,
+      'resizeDuration': 200,
+      'wrapAround': true,
+      'alwaysShowNavOnTouchDevices': true
+    });
+
+  $('.pks').each (function () {
+    var $that = $(this);
+    $(this).find ('.bottom > a').click (function () {
+      if ($(this).hasClass ('icon-chevron-thin-left')) {
+        var $last = $that.find ('>.pk').last ();
+        var $tmp = $last.clone (true);
+        $that.prepend ($tmp);
+        $last.remove ();
+      } else {
+        var $first = $that.find ('>.pk').first ();
+        var $tmp = $first.clone (true);
+        $that.append ($tmp);
+        $first.remove ();
+      }
+    });
+    $that.addClass ('ani');
   });
 });
