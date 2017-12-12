@@ -102,6 +102,12 @@ $(function () {
 
   $('.pks').each (function () {
     var $that = $(this);
+    if ($that.find ('.pk').length == 1) {
+      $that.addClass ('no');
+      return;
+    }
+
+    $that.find ('.pk').clone ().appendTo ($that);
     $(this).find ('.bottom > a').click (function () {
       if ($(this).hasClass ('icon-chevron-thin-left')) {
         var $last = $that.find ('>.pk').last ();

@@ -1539,6 +1539,11 @@ html {
       @include transition(left .3s);
     }
   }
+  &.no {
+    > .pk {
+      left: 0 !important;
+    }
+  }
   > .pk {
     position: absolute;
     left: 0;
