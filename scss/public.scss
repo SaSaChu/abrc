@@ -308,13 +308,27 @@ html {
         height: 80px - 2px;
         line-height: 80px - 2px;
         font-size: 18px;
-
         cursor: pointer;
         color: rgba(138, 138, 138, 1.00);
         text-decoration: none;
         @include transition(color .3s);
         
         padding-left: 30px;
+
+        &.en_menu {
+          width: calc(100% / 7) !important;
+          font-size: 15px;
+          padding-left: 16px !important;
+
+          @include range-width(840px, 1035px) {
+            font-size: 13px;
+            padding-left: 5px !important;
+          }
+          @include range-width(765px, 840px) {
+            font-size: 10px;
+            padding-left: 5px !important;
+          }
+        }
 
         > div { > a { padding-left: 30px; } }
         @include range-width(0, 850px) { padding-left: 8px; font-size: 16px; > div { > a { padding-left: 8px; } } }
@@ -365,6 +379,20 @@ html {
         @include range-width(970px, 1050px) { width: 200px; };
         &:hover, &.a {
           color: rgba(111, 111, 111, 1.00) !important;
+        }
+
+        &.en_menu {
+          font-size: 15px;
+          padding-left: 16px;
+
+          @include range-width(770px, 1035px) {
+            font-size: 13px;
+            padding-left: 8px !important;
+          }
+          @include range-width(765px, 840px) {
+            font-size: 10px;
+            padding-left: 5px !important;
+          }
         }
       }
       > *:not(:last-child) {
