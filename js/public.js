@@ -80,7 +80,7 @@ $(function () {
 
   $('.r .smenu').each (function () {
     var $t = $('<div />').attr ('id', 'smenu').append ($('<div />').append ($(this).find ('>a').clone ())).addClass ($(this).attr ('class').replace ('smenu', '')).insertAfter ($menu);
-    $t.find ('> div').width ($t.find ('> div > a').map (function () { return $(this).outerWidth (); }).toArray ().reduce (function (a, b) { return a + b; }));
+    $t.find ('> div').width ($t.find ('> div > a').map (function () { return 2 + $(this).outerWidth (); }).toArray ().reduce (function (a, b) { return a + b; }));
     $t.find ('> div > a').height ($t.find ('> div').height ());
   });
   $('ol.map').each (function () {
