@@ -923,14 +923,20 @@ html {
   > div {
     display: inline-block;
     height: 100%;
+    width: 100%;
+    height: 30px;
+    line-height: 30px;
     @include clearfix();
 
     > a {
       float: left;
       display: inline-block;
       max-width: 200px;
+      height: 30px;
+      line-height: 30px;
+
       // height: 100%;
-      padding: 0 8px;
+      padding: 0 16px;
       background-color: rgba(210, 210, 210, 1.00);
       color: white;
       // min-width: calc(100% / 4);
