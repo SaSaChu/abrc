@@ -274,12 +274,12 @@ html {
       > img {
         display: inline-block;
         max-width: 100%;
-        margin-top: 20px;
+        margin-top: 28px;
 
         @include range-width(0, 768px) {
-          margin-top: 10px;
-          height: 50px;
-          margin-bottom: 10px;
+          margin-top: 6px;
+          // height: 50px;
+          margin-bottom: 6px;
         };
       }
     }
@@ -307,13 +307,13 @@ html {
         
         height: 80px - 2px;
         line-height: 80px - 2px;
-        font-size: 18px;
+        font-size: 16px;
         cursor: pointer;
         color: rgba(138, 138, 138, 1.00);
         text-decoration: none;
         @include transition(color .3s);
         
-        padding-left: 30px;
+        padding-left: 40px;
 
         &.en_menu {
           width: calc(100% / 7) !important;
@@ -484,7 +484,7 @@ html {
       top: 70px + 32px;
       display: none;
       width: 230px;
-      background-color: rgba(255, 255, 255, .75);
+      background-color: rgba(255, 255, 255, .9);
       
       > label[for='mmenu'] {
         display: inline-block;
@@ -730,6 +730,10 @@ html {
           padding-left: 16px;
           padding-right: 16px;
         };
+
+        &.lw_all {
+          width: 100%;
+        }
       }
       &.r {
         width: 386px;
@@ -1242,7 +1246,8 @@ html {
   @include clearfix();
   margin-top: 32px;
   @include range-width(0, 500px) {
-    height: 160px;
+    // height: 160px;
+    height: 100%;
   }
   @include range-width(0, 920px) {
     margin-top: 16px;
@@ -1259,7 +1264,7 @@ html {
   }
   > div:not(._ic) {
     width: 100%;
-    padding: 28px 22px;
+    padding: 15px 22px;
     text-align: left;
     > * {
       display: inline-block;
@@ -1267,17 +1272,17 @@ html {
     }
     h4 {
       color: rgba(0, 0, 0, 1.00);
-      height: 32px;
-      line-height: 32px;
+      // height: 32px;
+      // line-height: 32px;
       font-size: 18px;
       margin: 8px 0;
       margin-bottom: 4px;
-      @include overflow-docx3();
+      // @include overflow-docx3();
     }
     p {
       color: rgba(34, 34, 34, 1.00);
       margin: 4px 0;
-      line-height: 24px;
+      // line-height: 24px;
       height: 24px * 3;
       overflow: hidden;
     }
@@ -1290,20 +1295,25 @@ html {
       color: rgba(3, 35, 95, 1.00);
     }
     @include range-width(0, 500px) {
-        height: 160px;
+        // height: 160px;
+        height: 100%;
         padding: 14px;
         h4 {
+          font-size: 18px;
           margin-top: 0;
+          // height: 32px;
+          // line-height: 32px;
+          // @include overflow-docx3();
         }
         p {
-          font-size: 14px;
-          line-height: 20px;
-          height: 20px * 3;
+          font-size: 18px;
+          // line-height: 20px;
+          height: 75px;
         }
     }
   }
   ._ic {
-    width: 300px;
+    width: 200px;
     height: 100%;
     &[data-title] {
       position: relative;
@@ -1322,14 +1332,15 @@ html {
       }
     }
     + * {
-      width: calc(100% - 300px) !important;
+      width: calc(100% - 200px) !important;
     }
     @include range-width(0, 500px) {
-      width: 140px;
+      width: 100%;
       height: 160px;
 
       + * {
-        width: calc(100% - 140px) !important;
+        // width: calc(100% - 145px) !important;
+        width: 100% !important;
       }
     }
     @include range-width(500px, 600px) {
@@ -1609,24 +1620,30 @@ html {
     background-color: rgba(201, 201, 201, 1.00);
     display: inline-block;
     width: 100%;
-    height: 225px;
+    height: 190px;
     z-index: 1;
   }
   .avatar {
     position: relative;
     z-index: 2;
     display: inline-block;
-    width: 250px;
-    height: 250px;
+    width: 220px;
+    height: 220px;
     border: 5px solid rgba(255, 255, 255, 1);
-    margin-top: -180px;
+    margin-top: -130px;
   }
   > span {
     display: block;
     width: 100%;
-    font-size: 22px;
+    font-size: 18px;
     margin-top: 16px;
+    padding: 0 20px;
     color: rgba(14, 14, 14, 1.00);
+    // text-align: left;
+
+    &.in_t {
+      text-align: left;
+    }
   }
   > p {
     color: rgba(136, 136, 136, 1.00);
@@ -1641,6 +1658,25 @@ html {
     padding: 0 20px;
     @include range-width(0, 920px) {
       height: 20px * 12;
+    }
+
+    b {
+      display: inline-block;
+      width: 100%;
+      text-align: left;
+      font-weight: normal;
+      padding-top: 15px;
+
+      a {
+        display: inline-block;
+        cursor: pointer;
+        color: rgba(7, 31, 84, 1.00);
+        text-decoration: none;
+
+        &:hover, &:active {
+          text-decoration: underline;
+        }
+      }
     }
   }
   &.y2 {
@@ -1750,7 +1786,7 @@ html {
       width: 50%;
       height: 100%;
       cursor: pointer;
-      font-size: 28px;
+      font-size: 24px;
       @include transition(background-color .3s, color .3s);
       color: rgba(255, 255, 255, 1.00);
       background-color: rgba(201, 201, 201, 1.00);
@@ -2153,7 +2189,7 @@ html {
     }
     text-align: left;
     > h1 {
-      font-size: 24px;
+      font-size: 22px;
     }
     > p {
       line-height: 33px;
@@ -3064,6 +3100,13 @@ html {
         height: 26px;
         line-height: 26px;
         font-size: 18px;
+
+        &.for_e {
+          font-size: 16px;
+          height: auto;
+          // word-break: break-all;
+        }
+
         + h3 {
           margin-top: 26px;
         }
@@ -3172,12 +3215,15 @@ html {
     text-align: left;
     font-weight: bold;
     @include clearfix();
+
+    font-size: 13px;
   }
 
   @include range-width(0, 768px) {
     margin-top: 20px;
-    height: 24px;
-    line-height: 24px;
+    padding: 5px 0;
+    height: 100%;
+    line-height: 20px;
     font-size: 15px;
     > div {
       text-align: center;
