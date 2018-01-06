@@ -373,10 +373,10 @@ html {
         }
       }
       > a:last-child {
-        width: 240px;
-        @include range-width(0, 850px) { width: 150px; }
-        @include range-width(850px, 970px) { width: 180px; }
-        @include range-width(970px, 1050px) { width: 200px; };
+        width: 240px - 2px;
+        @include range-width(0, 850px) { width: 150px - 2px; }
+        @include range-width(850px, 970px) { width: 180px - 2px; }
+        @include range-width(970px, 1050px) { width: 200px - 2px; };
         &:hover, &.a {
           color: rgba(111, 111, 111, 1.00) !important;
         }
