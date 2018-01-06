@@ -20,7 +20,7 @@ $(function () {
     var $div = $(this).find ('>div');
     var $imgs = $div.find ('>*');
 
-    $(this).find ('>a').click (function () {
+    var $r = $(this).find ('>a').click (function () {
       var $tmp = null;
 
       if ($(this).hasClass ('l')) {
@@ -32,7 +32,11 @@ $(function () {
         $tmp.clone (true).appendTo ($div);
         $tmp.remove ();
       }
-    });
+    }).filter ('.r');
+
+    setInterval (function () {
+      $r.click ();
+    }, 7 * 1000);
   });
   $('.mix-box').each (function () {
     var $img = $(this).find ('>.img');
