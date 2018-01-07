@@ -1645,6 +1645,32 @@ html {
       text-align: left;
     }
   }
+
+  .new_p {
+    color: rgba(136, 136, 136, 1.00);
+    display: inline-block;
+    width: 100%;
+    text-align: center;
+    font-size: 18px;
+    line-height: 24px;
+    height: 24px * 10;
+    overflow: hidden;
+    word-break: break-all;
+    padding: 0 20px;
+    @include range-width(0, 920px) {
+      height: 20px * 12;
+    }
+
+    p {
+      display: inline-block;
+      width: 100%;
+      text-align: left;
+      font-weight: normal;
+      padding-top: 15px;
+      margin: 0;
+    }
+  }
+
   > p {
     color: rgba(136, 136, 136, 1.00);
     display: inline-block;
@@ -1660,24 +1686,24 @@ html {
       height: 20px * 12;
     }
 
-    b {
-      display: inline-block;
-      width: 100%;
-      text-align: left;
-      font-weight: normal;
-      padding-top: 15px;
+    // b {
+    //   display: inline-block;
+    //   width: 100%;
+    //   text-align: left;
+    //   font-weight: normal;
+    //   padding-top: 15px;
 
-      a {
-        display: inline-block;
-        cursor: pointer;
-        color: rgba(7, 31, 84, 1.00);
-        text-decoration: none;
+    //   a {
+    //     display: inline-block;
+    //     cursor: pointer;
+    //     color: rgba(7, 31, 84, 1.00);
+    //     text-decoration: none;
 
-        &:hover, &:active {
-          text-decoration: underline;
-        }
-      }
-    }
+    //     &:hover, &:active {
+    //       text-decoration: underline;
+    //     }
+    //   }
+    // }
   }
   &.y2 {
     height: auto;
