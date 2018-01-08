@@ -1266,6 +1266,11 @@ html {
     width: 100%;
     padding: 15px 22px;
     text-align: left;
+
+    @include range-width(0, 890px) {
+      padding: 5px 15px;
+    }
+
     > * {
       display: inline-block;
       width: 100%;
@@ -1331,6 +1336,57 @@ html {
         font-size: 14px;
       }
     }
+
+    &.news_new {
+      + * {
+      width: calc(100% - 200px) !important;
+      }
+      @include range-width(0, 500px) {
+        width: 100%;
+        height: 160px;
+
+        + * {
+          // width: calc(100% - 145px) !important;
+          width: 100% !important;
+        }
+      }
+      @include range-width(500px, 600px) {
+        width: 200px;
+
+        + * {
+          width: calc(100% - 200px) !important;
+        }
+      }
+      @include range-width(600px, 768px) {
+        width: 280px;
+
+        + * {
+          width: calc(100% - 280px) !important;
+        }
+      }
+      @include range-width(768px, 850px) {
+        width: calc(100% - 400px);
+
+        + * {
+          width: 400px !important;
+        }
+      }
+      @include range-width(850px, 890px) {
+        width: calc(100% - 400px);
+
+        + * {
+          width: 400px !important;
+        }
+      }
+      @include range-width(890px, 1020px) {
+        width: calc(100% - 600px);
+
+        + * {
+          width: 600px !important;
+        }
+      };
+    }
+
     + * {
       width: calc(100% - 200px) !important;
     }
