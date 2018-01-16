@@ -1935,16 +1935,7 @@ html {
         ._ic {
           width: calc(100% - 180px);
           + * {
-            width: 180px;
-            line-height: 20px;
-            height: 3 * 20px;
-            font-size: 18px;
-            overflow: hidden;
-            text-align: left;
-            padding-left: 8px;
-            color: rgba(0, 0, 0, 1.00);
-            margin-top: 4px;
-            word-break: break-all;
+            width: 180px !important;
           }
           @include range-width(0, 768px) {
             width: 180px;
@@ -1969,6 +1960,18 @@ html {
             }
           }
         }
+        *:not(._ic) {
+          width: 100%;
+          line-height: 20px;
+          height: 3 * 20px;
+          font-size: 18px;
+          overflow: hidden;
+          text-align: left;
+          padding-left: 8px;
+          color: rgba(0, 0, 0, 1.00);
+          margin-top: 4px;
+          word-break: break-all;
+        }
       }
       > a:last-child {
         display: inline-block;
@@ -1986,7 +1989,6 @@ html {
         &:hover {
           background-color: rgba(190, 190, 190, 1.00)
         }
-        
       }
     }
   }
