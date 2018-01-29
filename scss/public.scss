@@ -1584,6 +1584,9 @@ html {
           text-align: left;
           color: rgba(135, 136, 137, 1.00);
           font-size: 18px;
+
+          word-wrap:break-word;
+          
           + p {
             margin-top: 6px;
           }
